@@ -1,0 +1,9 @@
+<h1>{{ meal.strMeal }}</h1>
+<img src="{{ meal.strMealThumb }}" width="300">
+<p>Category: {{ meal.strCategory }}</p>
+<p>Cuisine: {{ meal.strArea }}</p>
+
+<h2>Ingredients:</h2>
+{% for i in range(1, 6) %}
+    <p>{{ meal["strIngredient" ~ i] }}</p>
+{% endfor %}
