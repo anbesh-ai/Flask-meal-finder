@@ -5,6 +5,12 @@ import json
 import google.generativeai as genai
 from flask import jsonify
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
 genai.configure(api_key="AQ.Ab8RN6LA4mcdZcArqAFvMOHZoxhoRSRNavPfFCB8AUQea5zCKQ")
 model = genai.GenerativeModel("gemini-pro")
 
