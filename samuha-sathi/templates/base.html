@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Samuha Sathi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/lux/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        * {
+            font-family: "Playfair Display", serif !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark px-3 py-1 shadow">
+        
+        <span class="navbar-brand fw-bold fs-3">🌸 Samuha Sathi</span>
+        <div>
+            <a href="/" class="btn btn-dark btn-sm me-2">Home</a>
+            <a href="/members" class="btn btn-dark btn-sm me-2">Members</a>
+            <a href="/savings" class="btn btn-dark btn-sm">Savings</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div id="chatBubble" onclick="openChat()" style="position:fixed; bottom:24px; right:24px; display:flex; align-items:center; gap:10px; cursor:pointer; z-index:999;">
+  <div style="background:#1a1a1a; color:#fff; font-size:13px; padding:6px 14px; border-radius:20px; animation: pulse 2s infinite;">Let's chat</div>
+  <button style="width:52px; height:52px; border-radius:50%; background:#1a1a1a; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;">
+    <i class="ti ti-message-circle" style="font-size:24px; color:#fff;"></i>
+  </button>
+</div>
+
+<div id="chatWindow" style="display:none; position:fixed; bottom:24px; right:24px; width:320px; background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.15); z-index:1000; flex-direction:column;">
+  <div style="background:#1a1a1a; padding:12px 16px; display:flex; align-items:center; justify-content:space-between;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:34px; height:34px; border-radius:50%; background:#2d6a4f; display:flex; align-items:center; justify-content:center;">
+        <i class="ti ti-robot" style="color:#fff; font-size:18px;"></i>
+      </div>
+      <div>
+        <div style="color:#fff; font-size:14px; font-weight:500;">Samuha Assistant</div>
+        <div style="color:#aaa; font-size:11px;">Online</div>
+      </div>
+    </div>
+    <button onclick="closeChat()" style="background:none; border:none; color:#aaa; cursor:pointer; font-size:20px;">
+      <i class="ti ti-x"></i>
+    </button>
+  </div>
+
+  <div id="chatMessages" style="padding:14px; display:flex; flex-direction:column; gap:10px; min-height:200px; max-height:300px; overflow-y:auto;">
+    <div style="background:#f1f1f1; padding:10px 12px; border-radius:10px; border-bottom-left-radius:2px; font-size:13px; max-width:85%;">
+      Namaste! How can I help your group today?
+    </div>
+  </div>
+
+  <div style="display:flex; gap:8px; padding:12px; border-top:1px solid #eee;">
+    <input id="chatInput" type="text" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendMsg()"
+      style="flex:1; padding:8px 14px; border-radius:20px; border:1px solid #ddd; font-size:13px; outline:none;">
+    <button onclick="sendMsg()" style="background:#1a1a1a; border:none; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+      <i class="ti ti-send" style="color:#fff; font-size:16px;"></i>
+    </button>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+<style>
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+</style>
+
+<script>
+function openChat() {
+  document.getElementById('chatBubble').style.display = 'none';
+  document.getElementById('chatWindow').style.display = 'flex';
+}
+function closeChat() {
+  document.getElementById('chatWindow').style.display = 'none';
+  document.getElementById('chatBubble').style.display = 'flex';
+}
+
+async function sendMsg() {
+  const input = document.getElementById('chatInput');
+  const messages = document.getElementById('chatMessages');
+  if (!input.value.trim()) return;
+
+  const userMsg = input.value;
+  input.value = '';
+
+  messages.innerHTML += `<div style="background:#1a1a1a; color:#fff; padding:10px 12px; border-radius:10px; border-bottom-right-radius:2px; font-size:13px; max-width:85%; align-self:flex-end; margin-left:auto;">${userMsg}</div>`;
+
+  const res = await fetch('/chat_api', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({message: userMsg})
+  });
+  const data = await res.json();
+
+  messages.innerHTML += `<div style="background:#f1f1f1; padding:10px 12px; border-radius:10px; border-bottom-left-radius:2px; font-size:13px; max-width:85%;">${data.reply}</div>`;
+  messages.scrollTop = messages.scrollHeight;
+}
+</script>
+
+</body>
+</html>

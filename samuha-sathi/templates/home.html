@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- HERO SECTION -->
+  <div style="
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1400') center/cover no-repeat;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: -1.5rem -12px 2rem -12px;
+    border-radius: 12px;
+">
+    <div>
+      <h1 style="color:#fff; font-size:2.5rem; font-weight:700;">Samuha Sathi</h1>
+      <p style="color:#ddd; font-size:1.1rem; max-width:500px; margin:auto;">Empowering women's community groups in Nepal through digital management</p>
+      <a href="/members" class="btn btn-light btn-lg mt-3">Get Started</a>
+    </div>
+  </div>
+
+  <!-- ABOUT CARDS -->
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-4">
+      <div class="     card shadow p-3 mb-3 card-hover ">
+        <h5>History</h5>
+        <p class="text-muted" style="font-size:13px; btn btn-dark ">Aama Samuha originated in Western Nepal among Gurung communities (and to some extent Magar communities). It started because many Gurung men left home to serve in the British Army (Brigade of Gurkhas) or later the Indian Army. Women came together to support each other in the absence of male family members.
+
+          Early beginnings (19th – early 20th century): The groups initially focused on cultural and social activities — singing, dancing, and organizing evening gatherings or welcoming returning soldiers. Soldiers often donated money, which the groups used for community welfare. This is considered one of the oldest civil society movements in Nepal, going back nearly two centuries. Expansion (1980s onward): The groups became more formalized and widespread in rural Nepal during the 1980s. They evolved from cultural groups into platforms for women's empowerment. Many NGOs/INGOs supported them after Nepal's democracy movements (especially post-1990 and after the 2006 People's Movement). They gained popularity for practical community work. Key contributions over time: Social and health initiatives: Raising awareness on gender equality, stopping alcoholism/gambling, sanitation, nutrition, family planning, and supporting Female Community Health Volunteers (FCHVs). Economic empowerment: Establishing savings and credit cooperatives (microfinance), income-generating activities like goat/chicken farming, and revolving funds. Community development: Building/repairing trails, schools, temples, planting trees, and maintaining peace. Peace and conflict resolution: Especially post-2006 civil conflict, helping reintegrate ex-combatants/child soldiers, mediating disputes, supporting domestic violence victims, and promoting reconciliation.
+
+          Today, thousands of local Aama Samuha groups operate independently or with light support from government/NGOs. They remain largely volunteer-driven and play a vital role in grassroots mobilization, though they often face challenges like limited funding and formal recognition. Note: There may be specific registered groups (e.g., Hanshposha Aama Samuha in Sunsari or Nepal Mahila Aama Samuha), but the term generally refers to this movement rather than one national entity.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="    card shadow p-3 mb-3 card-hover">
+        <h5>Mission</h5>
+        <p class="text-muted" style="font-size:13px;btn btn-dark ">SMART = Specific, Measurable, Achievable, Relevant, Time-bound. These can be adapted for your website (e.g., for a new or existing Aama Samuha group, project, or awareness page). I've drafted a core Mission Statement followed by example objectives. Mission Statement (Readable & Suitable for Website) "Aama Samuha empowers women in Nepal through collective action, fostering gender equality, economic independence, health awareness, and community harmony. Rooted in our cultural strength, we transform challenges into opportunities for a more equitable and prosperous society."</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="     card shadow p-3 mb-3 card-hover ">
+        <h5>Objective</h5>
+        <p class="text-muted" style="font-size:13px; btn btn-dark ">Specific: Increase women's participation in local decision-making. Measurable: Train and support at least 200 women to actively participate in community meetings or leadership roles (e.g., school management or ward committees). Achievable: Through monthly workshops and partnerships with local government. Relevant: Builds on traditional Aama Samuha role in empowerment. Time-bound: Achieve by end of 2027. → By December 2027, enable 200+ women members to take leadership positions in at least 10 communities. Specific: Promote economic self-reliance via microfinance. Measurable: Establish or strengthen savings/credit groups reaching 500 members with a collective revolving fund of NPR 5 million+. Achievable: Regular monthly contributions + skill training (tailoring, farming, etc.). Relevant: Addresses poverty and income gaps. Time-bound: Within 24 months. → By mid-2028, support 500 women in generating additional household income through micro-enterprises. Specific: Raise awareness on health, education, and social issues. Measurable: Conduct 50 community awareness programs/sessions annually on topics like gender-based violence, nutrition, girls' education, and anti-alcoholism. Achievable: Partner with FCHVs and schools. Relevant: Core to historical Aama Samuha work. Time-bound: Ongoing, with annual targets. → Reach 5,000 community members with health and rights education programs each year. Specific: Support environmental and infrastructure development. Measurable: Organize community clean-ups, tree plantations (target: 10,000 trees), and small infrastructure projects (trails, toilets). Achievable: Volunteer mobilization + small grants. Relevant: Traditional community service focus. Time-bound: Annual campaigns. → Plant 10,000 trees and complete 5 community improvement projects by 2028.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK ACCESS -->
+  <div class="row justify-content-center mt-2">
+    <div class="col-md-4">
+      <div class="card shadow p-3 text-center">
+        <h4>Members</h4>
+        <p>Manage group members</p>
+        <a href="/members" class="btn btn-dark">View Members</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow p-3 text-center">
+        <h4>Savings</h4>
+        <p>Track monthly savings</p>
+        <a href="/savings" class="btn btn-dark">View Savings</a>
+      </div>
+    </div>
+  </div>
+
+<!-- CONTACT SECTION -->
+<div class="row justify-content-center mt-4 mb-5">
+    <div class="col-md-8">
+        <div class="card shadow-sm p-4">
+            <h6 class="text-muted text-uppercase text-center mb-3" 
+                style="letter-spacing:2px; font-size:11px;">Contact Us</h6>
+            
+            <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                
+                <a href="tel:+97798XXXXXXXX" style="text-decoration:none; color:inherit;">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="ti ti-phone" style="font-size:16px;"></i>
+                        <span style="font-size:13px;">+977-98XXXXXXXX</span>
+                    </div>
+                </a>
+
+                <div style="width:1px; height:20px; background:#ddd;"></div>
+
+                <a href="mailto:samuhasathi@gmail.com" style="text-decoration:none; color:inherit;">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="ti ti-mail" style="font-size:16px;"></i>
+                        <span style="font-size:13px;">samuhasathi@gmail.com</span>
+                    </div>
+                </a>
+
+                <div style="width:1px; height:20px; background:#ddd;"></div>
+
+                <a href="https://maps.google.com" target="_blank" style="text-decoration:none; color:inherit;">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="ti ti-map-pin" style="font-size:16px;"></i>
+                        <span style="font-size:13px;">Bharatpur, Nepal</span>
+                    </div>
+                </a>
+
+                <div style="width:1px; height:20px; background:#ddd;"></div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <a href="https://facebook.com" target="_blank" style="color:#1877F2;">
+                        <i class="ti ti-brand-facebook" style="font-size:20px;"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" style="color:#E4405F;">
+                        <i class="ti ti-brand-instagram" style="font-size:20px;"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
